@@ -18,6 +18,10 @@ class Account(models.Model):
         related_name="accounts",
         on_delete=models.CASCADE)
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 56434a55bbedf9b8fcd4eeb62a7241c70b1bc4f4
 class Receipt(models.Model):
     vendor = models.CharField(max_length=200)
     total = models.DecimalField(max_digits=10, decimal_places=3)
@@ -26,11 +30,19 @@ class Receipt(models.Model):
     purchaser = models.ForeignKey(
         User,
         related_name="receipts",
+<<<<<<< HEAD
         on_delete=models.CASCADE)
     category = models.ForeignKey(
         'ExpenseCategory',
         related_name="receipts",
         on_delete=models.CASCADE)
+=======
+        on_delete=models.CASCADE),
+    category = models.ForeignKey(
+        'ExpenseCategory',
+        related_name="receipts",
+        on_delete=models.CASCADE),
+>>>>>>> 56434a55bbedf9b8fcd4eeb62a7241c70b1bc4f4
     account = models.ForeignKey(
         'Account',
         related_name="receipts",
