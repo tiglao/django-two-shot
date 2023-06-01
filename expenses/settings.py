@@ -21,11 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = (
-<<<<<<< HEAD
     "django-insecure-t_-gr+*t5h)vqgr%1#dobby*znsn+v&-yt4x)mu^5=a&5v851l"
-=======
-    "django-insecure-vozvoxo0^qzewd7#@qm=kneg!m5(ynie_g2oq1p388!4j=&3#="
->>>>>>> 11e00b365988690a6a51e480d1702e125a95d013
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -37,11 +33,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-<<<<<<< HEAD
-=======
-    "receipts.apps.ReceiptsConfig",
     "accounts.apps.AccountsConfig",
->>>>>>> 11e00b365988690a6a51e480d1702e125a95d013
+    "receipts.apps.ReceiptsConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
