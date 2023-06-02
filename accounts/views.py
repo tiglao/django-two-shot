@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from accounts.forms import SignUpForm
 
 
@@ -26,3 +26,8 @@ def signup(request):
         "form": form,
     }
     return render(request, "accounts/login.html", context)
+
+
+def exit(request):
+    logout(request)
+    return redirect("login")
