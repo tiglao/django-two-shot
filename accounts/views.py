@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login, logout
-from accounts.forms import SignUpForm
+from django.contrib.auth import authenticate, logout
+from django.contrib.auth import login as auth_login
+from django.contrib.auth.models import User
+from accounts.forms import LoginForm, SignUpForm
 
 
-def signup(request):
+def login(request):
     if request.method == "POST":
-        form = SignUpForm(request.POST)
+        form = LoginForm(request.POST)
         if form.is_valid():
             username = form.cleaned_data["username"]
             password = form.cleaned_data["password"]
@@ -17,15 +19,42 @@ def signup(request):
             )
 
             if user is not None:
-                login(request, user)
+                auth_login(request)
                 return redirect("home")
+    else:
+        form = LoginForm()
+
+    context = {
+        "form": form,
+    }
+    return render(request, "accounts/login.html", context)
+
+
+def signup(request):
+    if request.method == "POST":
+        form = SignUpForm(request.POST)
+
+        if form.is_valid():
+            username = form.cleaned_data["username"]
+            password = form.cleaned_data["password"]
+            password_confirmation = form.cleaned_data["password_confirmation"]
+
+            if password == password_confirmation:
+                user = User.objects.create_user(
+                    username,
+                    password=password,
+                )
+                auth_login(request, user)
+                return redirect("home")
+            else:
+                form.add_error("password", "the passwords do not match")
     else:
         form = SignUpForm()
 
     context = {
         "form": form,
     }
-    return render(request, "accounts/login.html", context)
+    return render(request, "accounts/signup.html", context)
 
 
 def exit(request):
