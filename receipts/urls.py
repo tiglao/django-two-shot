@@ -1,9 +1,6 @@
 from django.urls import path
-from receipts.views import receipts
+from receipts.views import receipt_list
 
 urlpatterns = [
-    path("", receipts, name="home"),
+    path("", receipt_list, name="home"),
 ]
-
-if urlpatterns:
-    print("urlpatterns can be found")
