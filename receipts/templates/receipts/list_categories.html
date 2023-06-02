@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Test</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}
+Test
+{% endblock title %}
+
+{% block content %}
+
     <main>
         <h1>My Categories</h1>
-        <p><a href="{% url 'create_category' %}">Create Category</a></p>
         <table>
             <thead>
                 <tr>
@@ -24,5 +25,5 @@
             </tbody>
         </table>
     </main>
-</body>
-</html>
+
+{% endblock content %}

@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Test</title>
-</head>
-<body>
-    <header>
-        <nav>
-            <a href="{% url 'create_receipt' %}">Create Receipt</a>
-        </nav>
-    </header>
+{% extends "base.html" %}
+
+{% block title %}
+Test
+{% endblock title %}
+
+{% block content %}
+
     <main>
         <h1>My Receipts</h1>
         <table>
@@ -36,5 +33,5 @@
             </tbody>
         </table>
     </main>
-</body>
-</html>
+
+{% endblock content %}

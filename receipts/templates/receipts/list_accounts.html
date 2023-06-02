@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Test</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}
+Test
+{% endblock title %}
+
+{% block content %}
+
     <main>
         <h1>My Accounts</h1>
-        <p><a href="{% url 'create_account' %}">Create Account</a></p>
         <table>
             <thead>
                 <tr>
@@ -26,5 +27,5 @@
             </tbody>
         </table>
     </main>
-</body>
-</html>
+
+    {% endblock content %}

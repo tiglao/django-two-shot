@@ -1,9 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Test</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}
+Test
+{% endblock title %}
+
+{% block content %}
+
     <main>
         <div>
             <h1>Create Account</h1>
@@ -14,4 +16,5 @@
             </form>
         </div>
     </main>
-</body>
+
+{% endblock content %}
