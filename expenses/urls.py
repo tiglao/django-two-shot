@@ -9,6 +9,8 @@ def redirect_home(request):
 
 urlpatterns = [
     path("", include("receipts.urls")),
+    path("", include("accounts.urls")),
     path("", redirect_home),
     path("admin/", admin.site.urls),
+    path("accounts/", include("django.contrib.auth.urls")),
 ]
