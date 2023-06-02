@@ -19,7 +19,7 @@ def login(request):
             )
 
             if user is not None:
-                auth_login(request)
+                auth_login(request, user)
                 return redirect("home")
     else:
         form = LoginForm()
